@@ -1,0 +1,98 @@
+.form-group, .form-group input {
+    transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -webkit-transition: all 0.25s linear;
+}
+.form-error {
+    border-color: #ff0000;
+}
+
+.form-error-parent {
+    border: 1px solid #ff0000;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn ease-in 1; /* make things invisible upon start */
+    -moz-animation: fadeIn ease-in 1;
+    -webkit-animation: fadeIn ease-in 1;
+    animation-duration: .4s;
+
+    -moz-animation-duration: .4s; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -webkit-animation-duration: .4s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.fade-out {
+    animation: fadeOut ease-in 1; /* make things invisible upon start */
+    -moz-animation: fadeOut ease-in 1;
+    -webkit-animation: fadeOut ease-in 1;
+    animation-duration: .4s;
+
+    -moz-animation-duration: .4s; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -webkit-animation-duration: .4s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.media-object {
+    max-width: 100%;
+}
