@@ -4,6 +4,8 @@ define('USER_NAME', 'root');
 define('USER_PASS', '123');
 define('DB_NAME', 'task');
 
+header("Content-Type: text/html; charset=utf-8");
+
 require_once "includes/db-actions.php";
 if (!class_exists('DbConnect')) {
     printf("Db connection class not defined!");
@@ -108,8 +110,8 @@ function addUser() {
             'type' => 'url'
         ]
     ];
-    $validate_string = '/((?!@#\$%\^&\*\~&)[à-ÿÀ-ß³²¸¨\w\s\d,.!?()]){10,}/';
-    $validate_name = '/^([à-ÿÀ-ß³²¸¨a-zA-Z ]{4,128})$/';
+    $validate_string = '/((?!@#\$%\^&\*\~&)[{0430}-\x{044F}\x{0410}-\x{042F}a-zA-Z\w\s\d,.!?()]){10,}/u';
+    $validate_name = '/^([{0430}-\x{044F}\x{0410}-\x{042F}a-zA-Z]{4,128})$/u';
     $validate_email = '/^(([^<>()[\]\\\\.,;:\s@\"]+(\.[^<>()[\]\\\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
     $validate_phone = '/^(\+38)\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/';
 
@@ -183,7 +185,7 @@ function imageUploader() {
     if($_FILES["file"]["size"] > $max_size) {
         formatAjaxResponse(false, 'Uploaded file big!');
         return false;
-    }
+    } 
     $path = $path.strtolower($name);
     if(move_uploaded_file($tmp, $path)) {
         $additional_value = $site_url . $path;

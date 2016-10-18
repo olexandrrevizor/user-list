@@ -1,7 +1,7 @@
 NS.namespace('ajax');
 NS.ajax = (function (document, $) {
-    var _validate_string = /((?!@#\$%\^&\*\~&)[à-ÿÀ-ß³²¸¨\w\s\d,.!?()]){10,}/,
-        _validate_name = /^([à-ÿÀ-ß³²¸¨a-zA-Z ]{4,128})$/,
+    var _validate_string = /((?!@#\$%\^&\*\~&)[\u0400-\u04FF\w\s\d,.!?()]){10,}/,
+        _validate_name = /^([\u0400-\u04FFa-zA-Z ]{4,128})$/,
         _validate_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         _validate_phone = /^(\+38)\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
         _sys = NS.system,
@@ -208,8 +208,6 @@ NS.ajax = (function (document, $) {
                     if (user_avatar.val() && !uploaded)
                         ajaxUploader(user_avatar);
                 });
-            } else {
-                console.log('not found');
             }
 
         };
